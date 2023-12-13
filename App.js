@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// Inside your App component
+import { SafeAreaView, Alert } from "react-native";
+import Button from "./components/Button";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+const App = () => {
+    const handlePress = () => {
+        Alert.alert("Button Pressed", "You pressed the styled button!");
+    };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    return (
+        <SafeAreaView>
+            <Button
+                label={"Primary Button"}
+                onPress={handlePress}
+                buttonStyle={"primary"}
+            />
+            <Button
+                label={"Danger Button"}
+                onPress={handlePress}
+                buttonStyle="danger"
+            />
+            {/* Add more Button instances with different styles */}
+        </SafeAreaView>
+    );
+};
+
+export default App;
